@@ -84,7 +84,8 @@ Note: deployKey@34.33.11.11 , Here IP addreess 34.33.11.11 should be the IP addr
 
 ## 5: Set the config path inside VM in ~/.ssh/config for specific repository
 
-```Host github-admin
+```
+Host github-admin
   HostName github.com
   User git
   IdentityFile ~/.ssh/deploy_key
