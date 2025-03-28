@@ -1,12 +1,16 @@
-## FOR KEYGEN:
-
-`ssh-keygen -t rsa -b 4096 -C "deployKey"`
+This repo will explain how to deploy application in any virtual machine. For example Google Cloud Virtual Machine.
 
 ## Actions need to do for a successful deployment
 
 1. GitHub Actions → VM github_actions_key - Private key in GitHub Secrets - Public key in VM ~/.ssh/authorized_keys
 
 2. VM → GitHub Repo deploy_key - Private key in VM ~/.ssh/deploy_key - Public key in GitHub Deploy Keys
+
+3. FOR KEY GENERATION:
+
+`ssh-keygen -t rsa -b 4096 -C "github_actions_key"`
+
+`ssh-keygen -t rsa -b 4096 -C "deploy_key"`
 
 ## STEP 1. Add the Public Key to VM’s authorized_keys FOR SSH while git clone or other command from VM
 
@@ -21,6 +25,9 @@ on GitHub: Repository Settings → Secrets and Variables → Actions.
 SSH_PRIVATE_KEY contains the private key
 
 ## STEP 2. GitHub Actions Workflow
+
+In the codebase root directory we need a file in the following path
+`.github/worklows/deploy.yml `
 
 ```
 jobs:
@@ -53,7 +60,7 @@ jobs:
 ```Host github-admin
   HostName github.com
   User git
-  IdentityFile ~/.ssh/nteyeAdminInsiveVM
+  IdentityFile ~/.ssh/deploy_key
 ```
 
 ## STEP 4: Clone the Repo with the config alias
