@@ -45,7 +45,7 @@ SSH_PRIVATE_KEY contains the private key
 ## 4. GitHub Actions Workflow
 
 In the codebase root directory we need a file in the following path
-`.github/worklows/deploy.yml `
+`.github/workflows/deploy.yml `
 
 ```
 name: Deploy App to Google Cloud VM
